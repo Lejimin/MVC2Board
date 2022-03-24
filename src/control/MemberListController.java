@@ -14,7 +14,7 @@ import model.MemberBean;
 import model.MemberDAO;
 
 
-@WebServlet("/list.do")
+@WebServlet("/Mlist.do")
 public class MemberListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

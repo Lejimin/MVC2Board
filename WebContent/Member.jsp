@@ -9,6 +9,6 @@
 <body>
 
 <a href="MemberJoin.jsp"> 회원가입 </a><br>
-<a href="list.do"> 회원리스트+수정+삭제 </a><br>
+<a href="Mlist.do"> 회원리스트+수정+삭제 </a><br>
 </body>
 </html>

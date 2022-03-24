@@ -10,7 +10,7 @@
 <body>
 		<center>
 		<h2> 리스트 </h2>
-		<form action="list.do" method="post">
+		<form action="Mlist.do" method="post">
 			<table width="600" border="1" bordercolor="gray">
 				<tr height="40">
 					<td width="200px" align="center"> 아이디 </td>
