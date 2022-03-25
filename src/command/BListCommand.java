@@ -15,7 +15,7 @@ public class BListCommand implements BCommand {
 		BDao dao = new BDao();
 //		String p = request.getParameter("pageNumber");
 //		int pageNumber=1;
-//		pageNumber = Integer.parseInt(p);
+//		pageNumber = Integer.parseInt(p); 
 		//매개변수 pageNumber넣기
 		ArrayList<BDto> dtos = dao.list();
 		request.setAttribute("list", dtos);

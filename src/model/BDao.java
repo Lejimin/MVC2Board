@@ -67,7 +67,7 @@ public class BDao {
 	}
 	
 	
-//	//페이징
+//	//페이징 
 //	public int getNext() {
 //		String sql = "select bId from mvc_board order by bId desc";
 //		try {
