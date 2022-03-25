@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--     <%@ page import="model.BDao" %>
+    <%@ page import="model.BDto" %>
+    <%@ page import="java.util.ArrayList" %> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +13,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%-- 	<%
+	int pageNumber = 1;
+	if(request.getParameter("pageNumber")!=null){
+		pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+	}
+	%> --%>
 <h1 style="margin-left:770px;">자유게시판</h1>
 <table width="100%" cellpadding="0" cellspacing="0" border="1" class="table table-sm">
 
@@ -37,6 +46,20 @@
 <tr class="table-danger">
 	<td colspan="5"><a href="write_view.do" style="text-decoration:none; color:black;">글작성</a></td>
 </tr>
+<%-- <tr class="table-danger">
+			<%
+				BDao bdao = new BDao();
+				if(pageNumber != 1){
+			%>
+				<a href="list.do?pageNumber=<%=pageNumber - 1%>" class="btn btn-success btn-arrow-left">이전</a>
+			<%
+				}if(bdao.nextPage(pageNumber + 1)){
+			%>
+				<a href="list.do?pageNumber=<%=pageNumber + 1%>" class="btn btn-success btn-arrow-left">다음</a>
+			<%
+				}
+			%>
+</tr> --%>
 
 
 </table>

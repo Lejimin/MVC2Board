@@ -11,6 +11,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 
+
 public class BDao {
 	DataSource datasource;
 	Connection conn = null;
@@ -27,12 +28,14 @@ public class BDao {
 		}
 	}
 	
+	//int pageNumber 매개변수 넣기
 	public ArrayList<BDto> list(){
 		ArrayList<BDto> dtos = new ArrayList<BDto>();
 		try {
 			conn = datasource.getConnection();
-			String sql = "select bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent from mvc_board order by bGroup desc, bStep asc";
+			String sql = "select bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent from mvc_board order by bGroup desc, bStep asc limit 10";
 			pstmt = conn.prepareStatement(sql);
+//			pstmt.setInt(1, getNext() - (pageNumber -1) * 10);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				int bId = rs.getInt("bId");
@@ -62,6 +65,43 @@ public class BDao {
 		}
 		return dtos;
 	}
+	
+	
+//	//페이징
+//	public int getNext() {
+//		String sql = "select bId from mvc_board order by bId desc";
+//		try {
+//			PreparedStatement pstmt = conn.prepareStatement(sql);
+//			rs = pstmt.executeQuery();
+//			if(rs.next()) {
+//				return rs.getInt(1)+1;
+//			}
+//			return 1; //첫 번째 게시물인 경우
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return -1;   //데이터베이스 오류
+//	}
+//	
+//	//페이징
+//	public boolean nextPage(int pageNumber) {
+//		String sql = "select * from mvc_board where bId < ?";
+//		ArrayList<BDto> list = new ArrayList<BDto>();
+//		try {
+//			PreparedStatement pstmt = conn.prepareStatement(sql);
+//			pstmt.setInt(1, getNext() - (pageNumber -1) * 10);
+//			rs = pstmt.executeQuery();
+//			if(rs.next()) {
+//				return true;
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return false;
+//	}
+	
+
+	
 	
 	//글 내용보기
 	public BDto contentView(String strID) {
